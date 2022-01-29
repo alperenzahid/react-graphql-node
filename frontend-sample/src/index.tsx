@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ApolloClient, {InMemoryCache} from "apollo-boost";
+import {ApolloProvider} from "@apollo/client";
+
+const client: any = new ApolloClient({
+    uri: "http://localhost:4000",
+    cache: new InMemoryCache(),
+    name: 'Rick and Morty',
+    version: '1.0'
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+        <App />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

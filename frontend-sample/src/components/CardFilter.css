@@ -1,0 +1,55 @@
+.cardFilterBox{
+    position: absolute;
+    width: 327px;
+    height: 142px;
+    left: 556px;
+    top: 441px;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    color: #000000;
+}
+
+.cfBack{
+    position: absolute;
+    width: 1440px;
+    height: 1024px;
+    left: 0;
+    top: 0;
+
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.cfHeader{
+    height: 51.5px;
+    border-bottom:  0.5px solid #808080;
+}
+
+.cfClose{
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}
+
+.cfHeaderText{
+    font-weight: bold;
+    position: absolute;
+    top: 19px;
+    left: 16px;
+}
+
+.cfOption{
+    display: flex;
+}
+
+.cfOptionItem{
+    margin-left: 16px;
+    margin-top: 13px;
+}

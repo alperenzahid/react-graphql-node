@@ -1,0 +1,12 @@
+.cardBox{
+    /* Auto layout */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: absolute;
+    width: 1440px;
+    height: 816px;
+    left: 70px;
+    padding: 0 150px 0 0;
+    top: 178px;
+}

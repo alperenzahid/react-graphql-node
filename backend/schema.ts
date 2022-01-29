@@ -21,7 +21,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    characters(filter: String!, page: Int!): [Character!]!
+    characters(filter: [String!]!, page: Int!): [Character!]!
   }
 `;
 
