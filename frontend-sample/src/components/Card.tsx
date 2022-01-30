@@ -1,6 +1,7 @@
 import './Card.css'
 export default function Card({data}: any){
-    return (<div className="card">
+    return (
+        <div className="card">
         <div style={{backgroundImage: `url(${data.image})`}} className="cardPicture" />
         <div className="cardInfo">
             <div style={{fontSize: '16px', lineHeight: '19px', marginTop: '16px'}}>#id: {data.id}</div>

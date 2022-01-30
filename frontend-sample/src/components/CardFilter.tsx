@@ -23,7 +23,7 @@ export default function CardFilter({filter=[''], onClose = ()=>{}}: any){
                 calculatedFilter.push(key);
             }
         }
-        console.log("Calculated Filter: ",calculatedFilter);
+        //console.log("Calculated Filter: ",calculatedFilter);
         onClose(calculatedFilter)
     }
     return (

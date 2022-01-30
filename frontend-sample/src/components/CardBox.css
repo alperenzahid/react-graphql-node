@@ -1,6 +1,7 @@
 .cardBox{
     /* Auto layout */
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
     position: absolute;
