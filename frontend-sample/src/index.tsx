@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ApolloClient, {InMemoryCache} from "apollo-boost";
 import {ApolloProvider} from "@apollo/client";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const client: any = new ApolloClient({
     uri: "http://localhost:4000",
@@ -14,12 +15,14 @@ const client: any = new ApolloClient({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ApolloProvider client={client}>
-        <App />
-    </ApolloProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <ApolloProvider client={client}>
+            <ErrorBoundary>
+                <App/>
+            </ErrorBoundary>
+        </ApolloProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
