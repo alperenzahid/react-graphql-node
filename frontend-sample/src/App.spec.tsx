@@ -4,7 +4,6 @@ import App from './App';
 //import {render, cleanup} from '@testing-library/react'
 
 
-
 //This basically describes the test. It requires two parameters, like the name of the test and a function that holds the entire test.
 describe("App Component", function() {
     it("should render the App Component", function() {
@@ -21,9 +20,3 @@ describe("App Component", function() {
     //     expect(asFragment()).toMatchSnapshot()
     // })
 });
-
-// export default describe('Addition', () => {
-//     it('should know 5 + 4 equals 9 ', () => {
-//         expect(5 + 4).toBe(9);
-//     });
-// });
