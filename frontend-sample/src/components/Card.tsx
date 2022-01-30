@@ -1,5 +1,8 @@
 import './Card.css'
 export default function Card({data}: any){
+    if(!data){
+        return (<div>No Data for this character</div>)
+    }
     return (
         <div className="card">
         <div style={{backgroundImage: `url(${data.image})`}} className="cardPicture" />

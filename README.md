@@ -2,7 +2,6 @@
 
 ## Tech Stack
 
-
 ### Apollo Server, GraphQL, TypeScript
 
 ### Jest and Enzyme for Testing
