@@ -1,11 +1,10 @@
 import React, {useRef, useState} from 'react';
 import './App.css';
-import CardBox from "./components/CardBox";
-import CardFilter from "./components/CardFilter";
+import CardBox from "./components/CardBox/CardBox";
+import CardFilter from "./components/CardFilter/CardFilter";
 
 
 function App() {
-
     const [filter, setFilter] = useState(['Rick', 'Morty']);
     const [openFilter, setOpenFilter] = useState(false);
     const boxId = useRef(1);

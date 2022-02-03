@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start": "tsc && cp data.json dist/data.json && node dist/index.js",
+    "start-backend": "tsc && cp data.json dist/data.json && node dist/index.js",
     "lint": "eslint . --ext .ts",
     "test": "jest --watchAll"
   },

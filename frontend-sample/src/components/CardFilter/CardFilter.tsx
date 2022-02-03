@@ -1,18 +1,13 @@
 import './CardFilter.css'
 import {useState} from "react";
+import Options, {OPTION_TYPE} from "./Options";
 
-export default function CardFilter({filter=[''], onClose = ()=>{}}: any){
-    const allOptions = ["Rick", "Morty"];
-    const optionsInit : any = {
-        "Rick": !!filter.find((f:string)=>f==="Rick"),
-        "Morty": !!filter.find((f:string)=>f==="Morty"),
-    };
-
-
-    const [options, _setOptions] = useState(optionsInit)
-    const setOptions = (option: string) => {
-        const temp = {...options};
-        temp[option] = !temp[option];
+export default function CardFilter({filter=[''], onClose = ()=>{}}
+                                       : { filter: string[], onClose: Function }){
+    const initialOptions = new Options(filter)
+    const [options, _setOptions] = useState<Options>(initialOptions)
+    const setOptions = (optionType: OPTION_TYPE) => {
+        const temp = options.getCloned(optionType);
         _setOptions(temp)
     }
 
@@ -23,7 +18,6 @@ export default function CardFilter({filter=[''], onClose = ()=>{}}: any){
                 calculatedFilter.push(key);
             }
         }
-        //console.log("Calculated Filter: ",calculatedFilter);
         onClose(calculatedFilter)
     }
     return (
@@ -36,10 +30,8 @@ export default function CardFilter({filter=[''], onClose = ()=>{}}: any){
                 </div>
                 <div>
                     {
-                        allOptions.map((option)=>{
-                            //console.log("Filter: ", filter)
+                        Object.values(OPTION_TYPE).map((option: OPTION_TYPE)=>{
                             const selectLogo = options[option] ? "full" : "free";
-                            //console.log("Select Logo", selectLogo)
                             return <div className="cfOption"  key={option} onClick={()=>{
                                 setOptions(option);
                             }

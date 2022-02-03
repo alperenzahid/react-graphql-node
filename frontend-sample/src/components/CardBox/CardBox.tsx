@@ -1,15 +1,15 @@
-import charactersQuery from "../queries/charactersQuery";
 import {useLazyQuery} from "@apollo/client";
 import React, {useEffect, useRef, useState} from "react";
-import Card from "./Card";
+import Card, {TCardData} from "../Card/Card";
 import "./CardBox.css";
 import InfiniteScroll from "react-infinite-scroll-component"
+import Retrieve from "../../service/RetrieveData";
 
 
-export default function CardBox({filter = ['']}: any) {
+export default function CardBox({filter = [""]}: {filter: string[] | undefined}): JSX.Element {
 
     const lastPage = useRef(0);
-    const {query} = charactersQuery(filter, lastPage.current)
+    const {query} = Retrieve.characters(filter, lastPage.current)
 
     const [characters, setCharacters] = useState([]);
     const [getCharacters, { data, error }] = useLazyQuery(query,{
@@ -18,7 +18,6 @@ export default function CardBox({filter = ['']}: any) {
             setCharacters(newCharacters)
         }
     });
-
     const fetchMoreData = async () => {
         lastPage.current = lastPage.current + 1;
         getCharacters({variables: {filter, page: lastPage.current}})
@@ -45,7 +44,7 @@ export default function CardBox({filter = ['']}: any) {
         <div className="cardBox">
 
             <InfiniteScroll
-                dataLength={characters.length} //This is important field to render the next data
+                dataLength={characters.length}
                 next={fetchMoreData}
                 hasMore={characters.length < 500}
                 loader={<div className='loadingMessage'><h3>Loading...</h3></div>}
@@ -55,9 +54,9 @@ export default function CardBox({filter = ['']}: any) {
                     </p>
                 }
             >
-                <div style={{display: 'flex', flexWrap: 'wrap', width: '1280px'}}>
+                <div className="scrollArea">
                 {
-                    characters.map((cardData: any, index: number) => {
+                    characters.map((cardData: TCardData, index: number) => {
                         return <Card key={index} data={cardData}/>
                     })
                 }

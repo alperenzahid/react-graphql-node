@@ -1,13 +1,14 @@
 import {gql} from "apollo-boost";
 
-const charactersQuery = (filter = [''], page: number = 1)=>{
-    return {
-       query: GET_CHARACTERS,
-       variables: {filter, page}
+class Retrieve{
+    public static characters(filter = [''], page: number = 1){
+        return {
+            query: Retrieve.GET_CHARACTERS,
+            variables: {filter, page}
+        }
     }
-}
-const GET_CHARACTERS = gql`
-    query GetCharacters($filter: [String!]!, $page: Int!) {
+
+    private static GET_CHARACTERS = gql`query GetCharacters($filter: [String!]!, $page: Int!) {
             characters(filter: $filter, page: $page){
                 id,
                 name
@@ -30,5 +31,7 @@ const GET_CHARACTERS = gql`
               }
           }
   `;
+}
 
-export default charactersQuery;
+
+export default Retrieve;

@@ -11,6 +11,12 @@
     top: 178px;
 }
 
+.scrollArea{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1280px;
+}
+
 .loadingMessage{
     display: flex;
     flex-direction: row;
